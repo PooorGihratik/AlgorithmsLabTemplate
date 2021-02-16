@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <chrono>
 
 template<class T>
 class Timer {
@@ -48,10 +49,12 @@ public:
 
     float measure(int N) {
         T* values = generator->getValues(N);
-        float initialTime = clock();
+        using namespace std::chrono;
+        steady_clock::time_point t1 = steady_clock::now();
         algorithm->execute(values,N);
-        float workTime = clock() - initialTime;
-        return workTime;
+        steady_clock::time_point t2 = steady_clock::now();
+        microseconds workTime = duration_cast<microseconds>(t2 - t1);
+        return (float)workTime.count()/1000;
     }
 
     void measureAndPrint() {
