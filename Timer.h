@@ -17,7 +17,7 @@ private:
     IAlgorithm<T>* algorithm;
     std::vector<IOutputListener*> outputs;
     std::map<int,float> points;
-    std::vector<int> basicVal;
+    std::vector<int> measureSet;
     std::string name;
 private:
     void printOutput() {
@@ -29,19 +29,21 @@ private:
 
 public:
     Timer(IGenerator<T>* generator, IAlgorithm<T>* algorithm, std::string name) : generator(generator), algorithm(algorithm), name(name) {
-        basicVal.push_back(1000);
-        basicVal.push_back(2000);
-        basicVal.push_back(5000);
-        basicVal.push_back(10000);
-        basicVal.push_back(20000);
-        basicVal.push_back(50000);
-        basicVal.push_back(100000);
-        basicVal.push_back(200000);
-        basicVal.push_back(500000);
+        measureSet = std::vector<int>{1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 500000};
     }
 
-    void setGenerator(IGenerator<T>* generator) { this->generator = generator; }
-    void setAlgorithm(IAlgorithm<T>* algorithm) { this->algorithm = algorithm; }
+    void setGenerator(IGenerator<T>* generator) {
+        if (generator != nullptr) this->generator = generator;
+    }
+    void setAlgorithm(IAlgorithm<T>* algorithm) {
+        if (generator != nullptr) this->algorithm = algorithm;
+    }
+    void setName(std::string value) {
+        if (!value.empty()) name = value;
+    }
+    void setMeasureSet(std::vector<int> set) {
+        if (!set.empty()) measureSet = set;
+    }
 
     void addOutputListener(IOutputListener* listener) {
         outputs.push_back(listener);
@@ -54,12 +56,13 @@ public:
         algorithm->execute(values,N);
         steady_clock::time_point t2 = steady_clock::now();
         microseconds workTime = duration_cast<microseconds>(t2 - t1);
+        delete[] values;
         return (float)workTime.count()/1000;
     }
 
     void measureAndPrint() {
         points.clear();
-        for (auto value : basicVal) {
+        for (auto value : measureSet) {
             float time = measure(value);
             points.emplace(value,time);
         }
