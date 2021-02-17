@@ -23,7 +23,7 @@ void exampleAlg() {
     ConstantGenerator<float> con1;
     ConstantGenerator<int> con2;
 
-    // Algoritms Init
+    // Algorithms Init
     // When initialising the algorithms, be sure that the types of generator is equal
     alg::BubbleSort<float> bubbleF;
     alg::BubbleSort<int> bubbleI;
@@ -62,7 +62,7 @@ void exampleTimer() {
 
     // Adding the console OutputListeners for printing set of auto-measure results
     // Note:
-    // All OutputListeners have to implement IGenerator interface
+    // All OutputListeners have to implement IOutputListener interface
     ConsoleOutput console;
     timer.addOutputListener(&console);
 
@@ -71,12 +71,15 @@ void exampleTimer() {
     // Timer automatically measure the time with set of sizes of array
     // (Size is 1000,2000,5000,10000,...,500000)
     // Results will be printed in all added outputs
-    timer.measureAndPrint();
+    timer.autoMeasureWithSet();
 
     // 2. Manual measure
     // Timer measure the time with given size of array
     // And return the time
     float time = timer.measure(100);
     std::cout << "Measured time: " << time << std::endl;
+
+    // Upd: now you can set this set manually( using setMeasureSet() method)
+    // Also, this type of method was added to "name" field
 
 }

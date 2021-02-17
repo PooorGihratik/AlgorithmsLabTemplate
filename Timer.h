@@ -60,7 +60,7 @@ public:
         return (float)workTime.count()/1000;
     }
 
-    void measureAndPrint() {
+    void autoMeasureWithSet() {
         points.clear();
         for (auto value : measureSet) {
             float time = measure(value);
