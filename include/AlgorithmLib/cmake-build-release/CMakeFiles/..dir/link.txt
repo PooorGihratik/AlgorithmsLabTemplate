@@ -1,2 +1,0 @@
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc lib..a  CMakeFiles/..dir/Outputs/ConsoleOutput.cpp.obj CMakeFiles/..dir/Outputs/TXTFileOutput.cpp.obj CMakeFiles/..dir/Vector2fLib/Vector2f.cpp.obj
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe lib..a
