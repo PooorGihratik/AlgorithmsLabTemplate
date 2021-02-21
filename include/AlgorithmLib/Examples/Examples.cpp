@@ -2,11 +2,11 @@
 // Created by Кир on 15.02.2021.
 //
 #include <iostream>
-#include "Timer.h"
+#include "../Timer.h"
 
-#include "Output.h"
-#include "Generator.h"
-#include "Algorithm.h"
+#include "../Output.h"
+#include "../Generator.h"
+#include "../Algorithm.h"
 
 // This is an example of using different generators
 

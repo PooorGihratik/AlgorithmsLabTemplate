@@ -8,7 +8,7 @@
 #include <iostream>
 
 template<typename T>
-class BubbleSort : public IAlgorithm<T> {
+class BubbleSort : public ISortAlgorithm<T> {
 private:
     bool showProcess = false;
     bool hasIndex = false;
@@ -65,6 +65,10 @@ public:
             }
         }
         delete[] indexArray;
+    }
+
+    void sort(T* arr, int N) override {
+        execute(arr,N);
     }
 };
 

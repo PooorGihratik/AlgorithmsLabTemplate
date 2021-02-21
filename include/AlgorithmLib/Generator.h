@@ -9,5 +9,6 @@
 #include "Generators/RandomRealGenerator.h"
 #include "Generators/ConstantGenerator.h"
 #include "Generators/ReverseGenerator.h"
+#include "Generators/SearchGenerator.h"
 
 #endif //ALGORITHMSLABTEMPLATE_GENERATOR_H
