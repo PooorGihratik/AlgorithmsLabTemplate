@@ -6,5 +6,6 @@
 #define ALGORITHMSLABTEMPLATE_OUTPUT_H
 
 #include "Outputs/ConsoleOutput.h"
+#include "Outputs/TXTFileOutput.h"
 
 #endif //ALGORITHMSLABTEMPLATE_OUTPUT_H

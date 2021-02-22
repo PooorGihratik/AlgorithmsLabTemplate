@@ -10,5 +10,7 @@
 #include "Generators/ConstantGenerator.h"
 #include "Generators/ReverseGenerator.h"
 #include "Generators/SearchGenerator.h"
+#include "Generators/EqualRealGenerator.h"
+#include "Generators/WorstCaseGenerator.h"
 
 #endif //ALGORITHMSLABTEMPLATE_GENERATOR_H

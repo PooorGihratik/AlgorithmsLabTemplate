@@ -9,12 +9,13 @@
 #include "Vector2f.h"
 
 class Vector2fRandGenerator : public IGenerator<Vector2f> {
+private:
+    RandomRealGenerator<float> gen;
 public:
     Vector2f * getValues(int N) override {
-        RandomRealGenerator<float> ran;
         Vector2f* array = new Vector2f[N];
         for (int i = 0; i < N; ++i) {
-            float* a = ran.getValues(2);
+            float* a = gen.getValues(2);
             array[i] = Vector2f(a[0],a[1]);
             delete[] a;
         }

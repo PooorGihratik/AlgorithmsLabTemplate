@@ -26,5 +26,5 @@ bool Vector2f::operator==(Vector2f vector) const {
 }
 
 std::ostream &operator<<(std::ostream& stream, Vector2f vector) {
-    stream << "X: " << vector.x << ", Y: " << vector.y << "; ";
+    stream << "X: " << vector.x << ", Y: " << vector.y << ";";
 }
