@@ -67,6 +67,13 @@ public:
         delete[] indexArray;
     }
 
+    bool isSorted() {
+        for (int i =0;i<count-1;i++) {
+            if (array[i] > array[i+1]) return false;
+        }
+        return true;
+    }
+
     void sort(T* arr, int N) override {
         execute(arr,N);
     }
