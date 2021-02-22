@@ -112,7 +112,7 @@ void Task3() {
 void Task4() {
     float item = 50;
     EqualRealGenerator<float> gen;
-    QuickSort<float> quick;
+    QuickLibSort<float> quick;
 
     BinarySearch<float> binary;
     LinearSearch<float> linear;
@@ -124,6 +124,7 @@ void Task4() {
     searchGen.setSortAlgorithm(&quick);
 
     Timer<float> timer(&searchGen,&binary,"Binary");
+    timer.setTimeDiv(1);
     std::vector<int> measureSet;
     for (int i = 1; i <= 50; i++) {
         measureSet.push_back(10000*i);
@@ -131,10 +132,23 @@ void Task4() {
     timer.setMeasureSet(measureSet);
     timer.addOutputListener(new TXTFileOutput);
     timer.addOutputListener(new ConsoleOutput);
+
     timer.autoMeasureWithSet();
 
     timer.setName("Linear");
     timer.setAlgorithm(&linear);
+    timer.autoMeasureWithSet();
+
+    // Additionally, measured time for std::find realisation
+    SearchLib<float> lib;
+    timer.setAlgorithm(&lib);
+
+    searchGen.setSortAlgorithm(&quick);
+    timer.setName("LibSorted");
+    timer.autoMeasureWithSet();
+
+    searchGen.setSortAlgorithm(nullptr);
+    timer.setName("Lib");
     timer.autoMeasureWithSet();
 }
 

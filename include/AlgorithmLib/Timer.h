@@ -19,6 +19,7 @@ private:
     std::map<int,float> points;
     std::vector<int> measureSet;
     std::string name;
+    int timeDiv = 1000;
 private:
     void printOutput() {
         for (auto output:outputs) {
@@ -45,6 +46,10 @@ public:
         if (!set.empty()) measureSet = set;
     }
 
+    void setTimeDiv(int div) {
+        timeDiv = div;
+    }
+
     void addOutputListener(IOutputListener* listener) {
         outputs.push_back(listener);
     }
@@ -59,7 +64,7 @@ public:
         algorithm->end();
         microseconds workTime = duration_cast<microseconds>(t2 - t1);
         delete[] values;
-        return (float)workTime.count()/1000;
+        return (float)workTime.count()/timeDiv;
     }
 
     void autoMeasureWithSet() {

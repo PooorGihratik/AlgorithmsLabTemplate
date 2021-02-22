@@ -15,5 +15,6 @@
 
 #include "Algorithms/LinearSearch.h"
 #include "Algorithms/BinarySearch.h"
+#include "Algorithms/SearchLib.h"
 
 #endif //ALGORITHMSLABTEMPLATE_ALGORITHM_H
