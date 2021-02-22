@@ -11,5 +11,4 @@ set(TIMER Timer.h)
 set(VECTOR_LIB Vector2fLib/Vector2f.cpp Vector2fLib/Vector2f.h Vector2fLib/Vector2fRandGenerator.h Algorithms/BinarySearch.h)
 set(STACK_STRUCTURE StackStructure/Stack.h StackStructure/DeleteAlgorithm.h StackStructure/AddAlgorithm.h)
 
-add_library(Algorithms ${OUTPUT} ${GENERATOR} ${ALGORITHM} ${INCLUDE_FILES} ${TIMER} ${VECTOR_LIB} ${STACK_STRUCTURE} main.cpp)
-add_executable(Test ${OUTPUT} ${GENERATOR} ${ALGORITHM} ${INCLUDE_FILES} ${TIMER} ${VECTOR_LIB} ${STACK_STRUCTURE} main.cpp main.cpp)
+add_library(Algorithms ${OUTPUT} ${GENERATOR} ${ALGORITHM} ${INCLUDE_FILES} ${TIMER} ${VECTOR_LIB} ${STACK_STRUCTURE})
