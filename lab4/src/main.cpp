@@ -2,8 +2,8 @@
 #include <AlgorithmLib/Algorithm.h>
 #include <AlgorithmLib/Generator.h>
 #include <AlgorithmLib/Timer.h>
-#include <AlgorithmLib/VectorLib.h>
 #include <AlgorithmLib/Output.h>
+#include <AlgorithmLib/VectorLib.h>
 
 void TaskB2() {
     float item = 50;
@@ -112,15 +112,33 @@ void Task3() {
 void Task4() {
     float item = 50;
     EqualRealGenerator<float> gen;
+    QuickSort<float> quick;
 
+    BinarySearch<float> binary;
     LinearSearch<float> linear;
     linear.setSearchItem(item);
+    binary.setSearchItem(item);
 
     SearchGenerator<float> searchGen(&gen);
     searchGen.setSearchItem(item);
+    searchGen.setSortAlgorithm(&quick);
 
+    Timer<float> timer(&searchGen,&binary,"Binary");
+    std::vector<int> measureSet;
+    for (int i = 1; i <= 50; i++) {
+        measureSet.push_back(10000*i);
+    }
+    timer.setMeasureSet(measureSet);
+    timer.addOutputListener(new TXTFileOutput);
+    timer.addOutputListener(new ConsoleOutput);
+    timer.autoMeasureWithSet();
+
+    timer.setName("Linear");
+    timer.setAlgorithm(&linear);
+    timer.autoMeasureWithSet();
 }
 
 int main() {
+    Task4();
     return 0;
 }

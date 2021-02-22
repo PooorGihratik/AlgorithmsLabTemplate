@@ -7,6 +7,7 @@
 
 #include "Algorithms/SumAlgorithm.h"
 #include "Algorithms/SqrAlgorithm.h"
+#include "Algorithms/ProdAlgorithm.h"
 
 #include "Algorithms/BubbleSort.h"
 #include "Algorithms/QuickSort.h"

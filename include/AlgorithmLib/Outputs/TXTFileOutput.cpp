@@ -3,9 +3,10 @@
 //
 
 #include "TXTFileOutput.h"
+#include <dir.h>
 #include <fstream>
+#include <sstream>
 
-#define SavePath R"(D:\CLionProjects\Data\)"
 #define Extension ".txt"
 
 void TXTFileOutput::setName(std::string name) {
@@ -14,8 +15,24 @@ void TXTFileOutput::setName(std::string name) {
 
 void TXTFileOutput::printValues(std::map<int, float> values) {
     std::ofstream file;
-    file.open(SavePath + name + Extension);
+    std::stringstream stream;
+    stream << directory << name << Extension;
+    std::string fileName;
+    stream >> fileName;
+    file.open(fileName);
     for (auto val : values) {
         file << val.first << " " << val.second << std::endl;
+    }
+}
+
+TXTFileOutput::TXTFileOutput() {
+    char dir[PATH_MAX];
+    if (getcwd(dir,PATH_MAX) != NULL) {
+        std::string result;
+        std::stringstream stream;
+        stream << dir << "\\FileData\\";
+        stream >> result;
+        mkdir(result.c_str());
+        directory = result;
     }
 }

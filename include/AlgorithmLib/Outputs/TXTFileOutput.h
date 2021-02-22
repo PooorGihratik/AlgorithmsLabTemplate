@@ -9,7 +9,9 @@
 class TXTFileOutput : public IOutputListener {
 private:
     std::string name;
+    std::string directory;
 public:
+    TXTFileOutput();
     void setName(std::string name) override;
     void printValues(std::map<int, float> values) override;
 };
