@@ -3,7 +3,6 @@
 #include <AlgorithmLib/Generator.h>
 #include <AlgorithmLib/Timer.h>
 #include <AlgorithmLib/Output.h>
-#include <AlgorithmLib/VectorLib.h>
 #include <AlgorithmLib/StackLib.h>
 
 void StackCheck() {
@@ -52,6 +51,7 @@ void TimeMeasure() {
 }
 
 int main() {
+    StackCheck();
     TimeMeasure();
 }
 
