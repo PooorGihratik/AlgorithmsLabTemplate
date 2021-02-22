@@ -50,11 +50,13 @@ public:
     }
 
     float measure(int N) {
-        T* values = generator->getValues(N);
         using namespace std::chrono;
+        T* values = generator->getValues(N);
+        algorithm->prepare(N);
         steady_clock::time_point t1 = steady_clock::now();
         algorithm->execute(values,N);
         steady_clock::time_point t2 = steady_clock::now();
+        algorithm->end();
         microseconds workTime = duration_cast<microseconds>(t2 - t1);
         delete[] values;
         return (float)workTime.count()/1000;
