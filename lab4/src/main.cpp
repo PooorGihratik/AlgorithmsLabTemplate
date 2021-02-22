@@ -141,6 +141,7 @@ void Task4() {
 
     // Additionally, measured time for std::find realisation
     SearchLib<float> lib;
+    lib.setSearchItem(item);
     timer.setAlgorithm(&lib);
 
     searchGen.setSortAlgorithm(&quick);
