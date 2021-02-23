@@ -16,7 +16,7 @@ public:
     Vector2f(float x, float y) : x(x), y(y) {};
     float getLength() const { return std::sqrt(x*x + y*y); }
     bool operator>(Vector2f vector) const;
-    bool operator<(Vector2f vector) const;
+    bool operator<(Vector2f vector2) const;
     bool operator>=(Vector2f vector) const;
     bool operator<=(Vector2f vector) const;
     bool operator==(Vector2f vector) const;

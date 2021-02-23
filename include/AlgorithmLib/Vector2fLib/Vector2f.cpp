@@ -9,8 +9,8 @@ bool Vector2f::operator>(Vector2f vector) const {
     return getLength() > vector.getLength();
 }
 
-bool Vector2f::operator<(Vector2f vector) const {
-    return getLength() < vector.getLength();
+bool Vector2f::operator<(Vector2f vector2) const {
+    return getLength() < vector2.getLength();
 }
 
 bool Vector2f::operator>=(Vector2f vector) const {
