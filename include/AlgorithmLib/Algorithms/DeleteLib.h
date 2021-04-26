@@ -1,0 +1,8 @@
+//
+// Created by Кир on 27.02.2021.
+//
+
+#ifndef ALGORITHMS_DELETELIB_H
+#define ALGORITHMS_DELETELIB_H
+
+#endif //ALGORITHMS_DELETELIB_H
